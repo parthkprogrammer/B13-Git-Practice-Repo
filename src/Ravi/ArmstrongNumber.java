@@ -1,29 +1,39 @@
-package day3;
+package Ravi;
+
 import java.util.Scanner;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class ArmstrongNumber {
+
     public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter a Number");
+
+        System.out.print("Enter a Number: ");
         int num = sc.nextInt();
 
         int sum = armStrongNumber(num);
-        if(sum ==num){
-            System.out.println(num+ " is armstrong number");
-        }else {
-            System.out.println(num+ " is not armstrong number");
-        }
+
+        String result = (sum == num)
+                ? num + " is an Armstrong Number"
+                : num + " is not an Armstrong Number";
+
+        System.out.println(result);
+
+        sc.close();
     }
-    public static int armStrongNumber(int num){
-        int sum= 0;
+
+    public static int armStrongNumber(int num) {
+
+        int sum = 0;
         int rem;
-        while(num>0){
-            rem = num%10;
-            sum = sum + (rem*rem*rem);
-            num= num/10;
+        int temp = num;
+
+        while (temp > 0) {
+            rem = temp % 10;
+            sum = sum + (rem * rem * rem);
+            temp = temp / 10;
         }
+
         return sum;
     }
 }
